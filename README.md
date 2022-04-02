@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Bootcamp - ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Utils
 
-## Available Scripts
+- [Tailwindcss](https://tailwindcss.com/docs/presets#merging-logic-in-depth)
 
-In the project directory, you can run:
+```shell
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-### `npm start`
+- tailwind.config.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```javascript
+module.exports = {
+	content: ["./src/**/*.{js,jsx,ts,tsx}"],
+	theme: {
+		extend: {},
+	},
+	plugins: [],
+};
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- styles.css
 
-### `npm test`
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Open Weather Map](https://openweathermap.org/current)
+- [OWM API](https://home.openweathermap.org/api_keys)
+- [OWM Icons](https://openweathermap.org/weather-conditions)
 
-### `npm run build`
+## TypeScript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+  - Ventajas, ¿qué es?
+  - Type annotation
+    - Datos primitivos
+    - Objectos
+    - Arrays
+    - Functions
+  - Interface
+  - Type
+  - Enum
+  - Explicit vs. Implicit types
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- tsconfig.json
+  - [Compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 
-### `npm run eject`
+```json
+{
+	"compilerOptions": {
+		"jsx": "react",
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"outDir": "./build/",
+		"preserveConstEnums": true,
+		"removeComments": true,
+		"sourceMap": true,
+		"target": "es5"
+	},
+	"include": ["./src/**/**/*"]
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Redux
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Global State Management
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  - Store
+  - Action
+  - Dispatch
+  - Reducer
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-
 
-## Learn More
+```shell
+npm install redux react-redux
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+{
+ "compilerOptions": {
+  "target": "es5", // Specify ECMAScript target version
+  "allowJs": true, // Allow JavaScript files to be compiled
+  "skipLibCheck": true, // Skip type checking of all declaration files
+  "esModuleInterop": true, // Disables namespace imports (import * as fs from "fs") and enables CJS/AMD/UMD style imports (import fs from "fs")
+  "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+  "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file.
+  "module": "esnext", // Specify module code generation
+  "moduleResolution": "node", // Resolve modules using Node.js style
+  "isolatedModules": true, // Unconditionally emit imports for unresolved files
+  "resolveJsonModule": true, // Include modules imported with .json extension
+  "jsx": "react", // Support JSX in .tsx files
+  "sourceMap": true // Generate corresponding .map file
+ },
+ "include": ["src/**/*"],
+ "exclude": ["node_modules", "build"]
+```
